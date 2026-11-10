@@ -1,0 +1,59 @@
+name: "ToolLint"
+description: "Offline security linter for MCP server configs and LLM agent tool definitions (tool poisoning, permissions, supply chain, secrets)."
+author: "ToolLint contributors"
+branding:
+  icon: "shield"
+  color: "purple"
+inputs:
+  paths:
+    description: "Space-separated files, directories or globs to scan."
+    required: false
+    default: "."
+  fail-on:
+    description: "Fail the step if any finding is at or above this severity (info|low|medium|high|critical)."
+    required: false
+    default: "medium"
+  sarif-file:
+    description: "Where to write SARIF output (upload it with github/codeql-action/upload-sarif). Empty to skip."
+    required: false
+    default: "toollint.sarif"
+  version:
+    description: "ToolLint version to install from PyPI. Empty installs the action's own checkout."
+    required: false
+    default: ""
+  args:
+    description: "Extra arguments for 'toollint scan' (e.g. --select TL1,TL4)."
+    required: false
+    default: ""
+outputs:
+  sarif-file:
+    description: "Path of the SARIF report, if one was written."
+    value: ${{ steps.scan.outputs.sarif-file }}
+runs:
+  using: "composite"
+  steps:
+    - name: Install ToolLint
+      shell: bash
+      env:
+        TOOLLINT_VERSION: ${{ inputs.version }}
+      run: |
+        if [ -n "$TOOLLINT_VERSION" ]; then
+          python -m pip install --disable-pip-version-check "toollint==$TOOLLINT_VERSION"
+        else
+          python -m pip install --disable-pip-version-check "$GITHUB_ACTION_PATH/.."
+        fi
+    - name: Run ToolLint
+      id: scan
+      shell: bash
+      env:
+        PATHS: ${{ inputs.paths }}
+        FAIL_ON: ${{ inputs.fail-on }}
+        SARIF: ${{ inputs.sarif-file }}
+        EXTRA: ${{ inputs.args }}
+      run: |
+        # shellcheck disable=SC2086
+        if [ -n "$SARIF" ]; then
+          toollint scan $PATHS $EXTRA --format sarif --output "$SARIF" --exit-zero
+          echo "sarif-file=$SARIF" >> "$GITHUB_OUTPUT"
+        fi
+        toollint scan $PATHS $EXTRA --format github --fail-on "$FAIL_ON"

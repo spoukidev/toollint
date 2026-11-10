@@ -1,0 +1,8 @@
+- id: toollint
+  name: toollint
+  description: Offline security linter for MCP server configs and LLM tool definitions.
+  entry: toollint scan
+  language: python
+  types_or: [json, yaml]
+  files: (mcp|claude|cursor|settings|tools?|context_servers|config).*\.(json|jsonc|json5|ya?ml)$
+  require_serial: true

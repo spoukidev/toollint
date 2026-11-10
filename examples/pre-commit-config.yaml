@@ -1,0 +1,6 @@
+# .pre-commit-config.yaml in your repository
+repos:
+  - repo: https://github.com/spoukidev/toollint   # replace with the published repository
+    rev: v0.1.0
+    hooks:
+      - id: toollint

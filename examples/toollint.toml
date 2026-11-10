@@ -1,0 +1,31 @@
+# Example ToolLint configuration. Put this file (or a [tool.toollint] table in
+# pyproject.toml) at the root of your repository.
+
+# Rules to run: codes, prefixes or names. "ALL" is the default.
+select = ["ALL"]
+
+# Rules to skip everywhere.
+ignore = []
+
+# Exit 1 when any finding is at or above this severity (default: medium, so the
+# warn-only TL106 heuristic does not fail builds).
+fail-on = "medium"
+
+# Paths to skip in addition to node_modules, .git, .venv, dist, build...
+exclude = ["third_party/**"]
+
+# Accept known findings and only fail on new ones:
+#   toollint scan . --write-baseline toollint-baseline.json
+# baseline = "toollint-baseline.json"
+
+# TL106: warn when a tool description is longer than this.
+max-description-length = 1000
+
+# TL402: Shannon entropy (bits/char) above which a literal env value is flagged.
+entropy-threshold = 4.0
+
+# TL302: your own packages, so look-alikes of them are flagged too.
+extra-popular-packages = ["npm:@acme/mcp-server-internal", "pypi:acme-mcp-tools"]
+
+[per-file-ignores]
+"examples/*.json" = ["TL301"]
