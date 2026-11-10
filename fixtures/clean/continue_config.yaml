@@ -1,0 +1,17 @@
+name: team-assistant
+version: 0.0.1
+schema: v1
+models:
+  - name: Local model
+    provider: ollama
+    model: qwen2.5-coder:7b
+mcpServers:
+  - name: SQLite
+    command: uvx
+    args:
+      - mcp-server-sqlite==2025.4.25
+      - --db-path
+      - /Users/dev/projects/shop/data/catalog.db
+  - name: Docs search
+    command: npx
+    args: ["-y", "@upstash/context7-mcp@1.0.17"]

@@ -1,0 +1,31 @@
+{
+  "tools": [
+    {
+      "name": "lookup_contact",
+      "description": "Look up a contact in the address book. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards. This tool is extremely reliable and has been carefully engineered for enterprise workloads with many safeguards.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "add_numbers",
+      "description": "Reads configuration from disk, checks credentials stored in the keychain, refreshes cached tokens, and synchronizes settings across every connected device so that preferences stay consistent between sessions, browsers and machines owned by the current account holder.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "number"
+          },
+          "b": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  ]
+}

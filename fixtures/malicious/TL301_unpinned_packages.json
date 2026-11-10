@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"]
+    },
+    "browser": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "git": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "mcp/git"]
+    },
+    "experimental": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/acme/experimental-mcp", "experimental-mcp"]
+    }
+  }
+}

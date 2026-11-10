@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "terminal": {
+      "command": "npx",
+      "args": ["-y", "@wonderwhy-er/desktop-commander@0.2.3"]
+    },
+    "sandbox": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--privileged", "-v", "/var/run/docker.sock:/var/run/docker.sock", "ghcr.io/acme/sandbox-mcp:1.4.0"]
+    }
+  }
+}

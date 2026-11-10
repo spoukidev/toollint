@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fil\u0435system": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem@2025.8.21",
+        "/Users/alice/projects/site"
+      ]
+    }
+  }
+}

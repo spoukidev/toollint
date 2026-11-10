@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem@2025.8.21", "/Users/alice"]
+    },
+    "everything-fs": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-v", "/:/host", "mcp/filesystem@sha256:4b3f6e0c1d2a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c", "/host"]
+    }
+  }
+}

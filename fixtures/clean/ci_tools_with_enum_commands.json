@@ -1,0 +1,22 @@
+{
+  "tools": [
+    {
+      "name": "run_project_script",
+      "description": "Run one of the project's predefined npm scripts and return its output.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "script": { "type": "string", "enum": ["test", "lint", "build", "typecheck"] }
+        },
+        "required": ["script"]
+      },
+      "annotations": { "readOnlyHint": false, "destructiveHint": false }
+    },
+    {
+      "name": "send_build_report",
+      "description": "Send the latest build report to the team channel configured in the CI settings.",
+      "inputSchema": { "type": "object", "properties": { "build_id": { "type": "string" } }, "required": ["build_id"] },
+      "annotations": { "destructiveHint": true, "openWorldHint": true }
+    }
+  ]
+}

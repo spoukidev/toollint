@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "jira": {
+      "command": "npx",
+      "args": ["-y", "jira-mcp@1.4.0"],
+      "env": { "NODE_TLS_REJECT_UNAUTHORIZED": "0" }
+    },
+    "docs": {
+      "command": "uvx",
+      "args": ["--allow-insecure-host", "pypi.mirror.example", "docs-mcp==0.3.1"]
+    }
+  }
+}

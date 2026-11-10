@@ -1,0 +1,21 @@
+# Tool manifest for an internal LangChain agent.
+tools:
+  - name: wikipedia_lookup
+    description: Look up a topic on Wikipedia and return the first two paragraphs of the article.
+    parameters:
+      type: object
+      properties:
+        topic:
+          type: string
+          description: Article title or search phrase, e.g. "Alan Turing".
+      required: [topic]
+  - name: calculator
+    description: Evaluate a basic arithmetic expression with +, -, *, / and parentheses.
+    parameters:
+      type: object
+      properties:
+        expression:
+          type: string
+          pattern: "^[0-9+\\-*/(). ]+$"
+          description: The expression to evaluate, e.g. "(3 + 4) * 2".
+      required: [expression]

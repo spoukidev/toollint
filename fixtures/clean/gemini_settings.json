@@ -1,0 +1,15 @@
+{
+  "theme": "GitHub",
+  "mcpServers": {
+    "cloud-run": {
+      "httpUrl": "https://mcp-gateway-abc123-uc.a.run.app/mcp",
+      "headers": { "Authorization": "Bearer $CLOUD_RUN_ID_TOKEN" },
+      "timeout": 30000
+    },
+    "kubernetes": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-kubernetes@2.9.1"],
+      "env": { "ALLOW_ONLY_NON_DESTRUCTIVE_TOOLS": "true" }
+    }
+  }
+}

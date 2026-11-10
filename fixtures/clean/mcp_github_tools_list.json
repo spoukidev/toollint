@@ -1,0 +1,64 @@
+{
+  "tools": [
+    {
+      "name": "create_issue",
+      "description": "Create a new issue in a GitHub repository.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": { "type": "string", "description": "Repository owner" },
+          "repo": { "type": "string", "description": "Repository name" },
+          "title": { "type": "string", "description": "Issue title" },
+          "body": { "type": "string", "description": "Issue body content" },
+          "labels": { "type": "array", "items": { "type": "string" }, "description": "Labels to apply to this issue" }
+        },
+        "required": ["owner", "repo", "title"]
+      },
+      "annotations": { "title": "Open new issue", "readOnlyHint": false }
+    },
+    {
+      "name": "merge_pull_request",
+      "description": "Merge a pull request in a GitHub repository.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": { "type": "string" },
+          "repo": { "type": "string" },
+          "pullNumber": { "type": "number" },
+          "merge_method": { "type": "string", "enum": ["merge", "squash", "rebase"] }
+        },
+        "required": ["owner", "repo", "pullNumber"]
+      },
+      "annotations": { "title": "Merge pull request", "readOnlyHint": false }
+    },
+    {
+      "name": "delete_file",
+      "description": "Delete a file from a GitHub repository.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": { "type": "string" },
+          "repo": { "type": "string" },
+          "path": { "type": "string", "description": "Path to the file to delete" },
+          "message": { "type": "string", "description": "Commit message" },
+          "branch": { "type": "string", "description": "Branch to delete the file from" }
+        },
+        "required": ["owner", "repo", "path", "message", "branch"]
+      },
+      "annotations": { "title": "Delete file", "readOnlyHint": false, "destructiveHint": true }
+    },
+    {
+      "name": "search_code",
+      "description": "Fast and precise code search across ALL GitHub repositories using GitHub's native search engine. Best for finding exact symbols, functions, classes, or specific code patterns.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "Search query using GitHub's powerful code search syntax." },
+          "perPage": { "type": "number", "minimum": 1, "maximum": 100 }
+        },
+        "required": ["query"]
+      },
+      "annotations": { "title": "Search code", "readOnlyHint": true }
+    }
+  ]
+}

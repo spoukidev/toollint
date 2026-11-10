@@ -1,0 +1,20 @@
+// VS Code user settings with MCP servers (JSONC: comments and trailing commas).
+{
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "files.exclude": { "**/.git": true, },
+  /* MCP servers available to Copilot agent mode */
+  "mcp": {
+    "servers": {
+      "time": {
+        "type": "stdio",
+        "command": "uvx",
+        "args": ["mcp-server-time==2025.8.4", "--local-timezone=Europe/Lisbon"],
+      },
+      "sequential-thinking": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@2025.7.1"],
+      },
+    },
+  },
+}

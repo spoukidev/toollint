@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "shell": {
+      "command": "uvx",
+      "args": ["mcp-shell-server==1.0.3"],
+      "env": { "ALLOW_COMMANDS": "ls,cat,pwd,grep,wc,git status,git diff" }
+    }
+  }
+}

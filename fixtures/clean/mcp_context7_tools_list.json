@@ -1,0 +1,30 @@
+{
+  "tools": [
+    {
+      "name": "resolve-library-id",
+      "description": "Resolves a package/product name to a Context7-compatible library ID and returns a list of matching libraries.\n\nYou MUST call this function before 'get-library-docs' to obtain a valid Context7-compatible library ID UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.\n\nSelection Process:\n1. Analyze the query to understand what library/package the user is looking for\n2. Return the most relevant match based on name similarity, description relevance and documentation coverage\n\nResponse Format:\n- Return the selected library ID in a clearly marked section\n- If multiple good matches exist, acknowledge this but proceed with the most relevant one\n- If no good matches exist, clearly state this and suggest query refinements",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "libraryName": { "type": "string", "description": "Library name to search for and retrieve a Context7-compatible library ID." }
+        },
+        "required": ["libraryName"]
+      },
+      "annotations": { "readOnlyHint": true }
+    },
+    {
+      "name": "get-library-docs",
+      "description": "Fetches up-to-date documentation for a library. You must call 'resolve-library-id' first to obtain the exact Context7-compatible library ID required to use this tool, UNLESS the user explicitly provides a library ID in the format '/org/project' or '/org/project/version' in their query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "context7CompatibleLibraryID": { "type": "string", "description": "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js') retrieved from 'resolve-library-id' or directly from user query in the format '/org/project' or '/org/project/version'." },
+          "topic": { "type": "string", "description": "Topic to focus documentation on (e.g., 'hooks', 'routing')." },
+          "tokens": { "type": "number", "description": "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens." }
+        },
+        "required": ["context7CompatibleLibraryID"]
+      },
+      "annotations": { "readOnlyHint": true }
+    }
+  ]
+}

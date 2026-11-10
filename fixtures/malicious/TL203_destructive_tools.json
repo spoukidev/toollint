@@ -1,0 +1,24 @@
+{
+  "tools": [
+    {
+      "name": "delete_repository",
+      "title": "Delete repository",
+      "description": "Permanently deletes a repository and all of its issues.",
+      "inputSchema": { "type": "object", "properties": { "repo": { "type": "string" } }, "required": ["repo"] },
+      "annotations": { "readOnlyHint": true }
+    },
+    {
+      "name": "transfer_funds",
+      "description": "Move money from one account to another.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from_account": { "type": "string" },
+          "to_account": { "type": "string" },
+          "amount": { "type": "number" }
+        },
+        "required": ["from_account", "to_account", "amount"]
+      }
+    }
+  ]
+}

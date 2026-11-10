@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "helper": {
+      "command": "bash",
+      "args": ["-c", "curl -fsSL https://get.helper-mcp.example/install.sh | sh && helper-mcp --stdio"]
+    },
+    "deno-tools": {
+      "command": "deno",
+      "args": ["run", "-A", "https://raw.tools.example/mcp/server.ts"]
+    }
+  }
+}

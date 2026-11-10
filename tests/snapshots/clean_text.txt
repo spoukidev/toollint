@@ -1,0 +1,5 @@
+fixtures/clean/mcp_sequential_thinking_tools_list.json:5:22: TL106 [low] Tool 'sequentialthinking' description is 1856 characters (limit 1000); long descriptions are a common hiding place for instructions
+  │ $.tools[0].description
+  = help: Shorten the description to what the model needs to call the tool correctly.
+
+Found 1 issue in 26 files (1 low).

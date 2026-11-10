@@ -1,0 +1,17 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "run_command",
+      "description": "Run a shell command on the host and return stdout.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "command": { "type": "string", "description": "The command line to execute." },
+          "cwd": { "type": "string", "description": "Working directory." }
+        },
+        "required": ["command"]
+      }
+    }
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "tools": [
+    {
+      "name": "translate_ar_en",
+      "description": "ترجمة النص من العربية إلى الإنجليزية. Translates Arabic text to English, e.g. ‏مرحبا‏ → hello.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "النص المراد ترجمته"
+          }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "emoji_status",
+      "description": "Set your team status with an emoji such as 👩‍💻 (coding), 🏴󠁧󠁢󠁳󠁣󠁴󠁿 (travelling) or ❤️.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "emoji": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "persian_spellcheck",
+      "description": "بررسی املای متن فارسی مانند می‌خواهم. Checks Persian spelling.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "russian_summary",
+      "description": "Кратко пересказывает текст на русском языке. Summarizes Russian text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ]
+}

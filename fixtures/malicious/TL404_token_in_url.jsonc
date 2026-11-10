@@ -1,0 +1,13 @@
+// Cursor-style config with comments (JSONC).
+{
+  "mcpServers": {
+    // Remote search server; the key is pasted straight into the URL.
+    "search": {
+      "url": "https://mcp.search.example/sse?api_key=live_4f9c2d7e1b8a6c3d",
+    },
+    "tickets": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@0.1.29", "https://bot:Sup3rS3cretPass@tickets.example/mcp"],
+    },
+  },
+}

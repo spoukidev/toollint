@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesytem@1.0.2", "/Users/alice/projects/site"]
+    },
+    "browser": {
+      "command": "npx",
+      "args": ["-y", "@playwrlght/mcp@0.0.41"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetsh==2025.4.7"]
+    }
+  }
+}

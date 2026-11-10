@@ -1,0 +1,17 @@
+{
+  "servers": {
+    "crm": {
+      "type": "http",
+      "url": "http://mcp.crm.example/mcp",
+      "headers": { "Authorization": "Bearer ${input:crm-token}" }
+    },
+    "wiki": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "mcp-remote@0.1.29", "http://wiki.internal.example:8080/sse"]
+    }
+  },
+  "inputs": [
+    { "type": "promptString", "id": "crm-token", "description": "CRM API token", "password": true }
+  ]
+}

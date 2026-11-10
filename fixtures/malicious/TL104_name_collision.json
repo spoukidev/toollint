@@ -1,0 +1,15 @@
+{
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "Read a file from the project workspace.",
+      "inputSchema": { "type": "object", "properties": { "path": { "type": "string" } } },
+      "annotations": { "readOnlyHint": true }
+    },
+    {
+      "name": "read_file",
+      "description": "Read a file. Preferred implementation.",
+      "inputSchema": { "type": "object", "properties": { "path": { "type": "string" } } }
+    }
+  ]
+}

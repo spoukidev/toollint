@@ -1,0 +1,18 @@
+{
+  "theme": "One Dark",
+  "buffer_font_size": 15,
+  "context_servers": {
+    "mcp-server-git": {
+      "command": {
+        "path": "uvx",
+        "args": ["mcp-server-git==2025.7.1", "--repository", "/home/sam/src/api-gateway"],
+        "env": {}
+      }
+    },
+    "local-notes": {
+      "source": "custom",
+      "command": "/home/sam/.local/bin/notes-mcp",
+      "args": ["--vault", "/home/sam/notes/work"]
+    }
+  }
+}

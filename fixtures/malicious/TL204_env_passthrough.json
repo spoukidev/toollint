@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "notes": {
+      "command": "notes-mcp",
+      "env": {
+        "AWS_SECRET_ACCESS_KEY": "${env:AWS_SECRET_ACCESS_KEY}",
+        "GITHUB_TOKEN": "${env:GITHUB_TOKEN}",
+        "*": "inherit"
+      }
+    },
+    "reports": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "AWS_SESSION_TOKEN", "ghcr.io/acme/reports-mcp:2.0.1"],
+      "inheritEnv": true
+    }
+  }
+}

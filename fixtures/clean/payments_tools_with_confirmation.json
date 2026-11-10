@@ -1,0 +1,28 @@
+{
+  "tools": [
+    {
+      "name": "create_refund",
+      "description": "Refund all or part of a charge. Requires user confirmation before it is executed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "charge_id": { "type": "string", "pattern": "^ch_[A-Za-z0-9]+$" },
+          "amount": { "type": "integer", "description": "Amount in cents. Omit to refund the full charge." },
+          "confirm": { "type": "boolean", "description": "Must be true; set only after the user approves the refund." }
+        },
+        "required": ["charge_id", "confirm"]
+      },
+      "annotations": { "destructiveHint": true, "idempotentHint": false, "openWorldHint": true }
+    },
+    {
+      "name": "list_recent_charges",
+      "description": "List the 25 most recent charges for a customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "customer_id": { "type": "string" } },
+        "required": ["customer_id"]
+      },
+      "annotations": { "readOnlyHint": true }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@0.1.29", "https://mcp.atlassian.com/v1/sse"]
+    },
+    "crm": {
+      "command": "npx",
+      "args": [
+        "-y", "mcp-remote@0.1.29",
+        "https://mcp.crm.acme.example/mcp",
+        "--header", "Authorization:${CRM_AUTH_HEADER}"
+      ],
+      "env": { "CRM_AUTH_HEADER": "Bearer ${CRM_TOKEN}" }
+    },
+    "local-dev": {
+      "url": "http://localhost:3000/mcp"
+    }
+  }
+}

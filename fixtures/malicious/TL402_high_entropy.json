@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "crm": {
+      "command": "crm-mcp",
+      "args": ["--stdio"],
+      "env": {
+        "CRM_LICENSE": "q8Zr2Lx9TfW4mKp7Vn3Hy6Bc1Jd5Gs0E",
+        "CRM_REGION": "eu-west-1"
+      }
+    }
+  }
+}
