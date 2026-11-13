@@ -50,12 +50,15 @@ class SeverityOpt(str, Enum):
 def _console(no_color: bool, file: object = None) -> Console:
     color = not no_color and "NO_COLOR" not in os.environ
     width = int(os.environ.get("TOOLLINT_WIDTH", "0") or 0) or None
+    # legacy_windows=False keeps box-drawing (│) and ellipsis (…) intact on
+    # Windows consoles, which otherwise replace them with U+FFFD.
     return Console(
         file=file,  # type: ignore[arg-type]
         highlight=False,
         no_color=not color,
         width=width,
         height=50 if width else None,
+        legacy_windows=False,
     )
 
 

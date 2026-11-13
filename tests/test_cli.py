@@ -310,9 +310,12 @@ def test_discover(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
 def test_discover_candidates_per_platform(tmp_path: Path) -> None:
     from toollint.discover import candidate_paths
 
-    mac = [str(p) for _, p in candidate_paths(tmp_path, tmp_path, "darwin", {})]
-    assert any("Library/Application Support/Claude/claude_desktop_config.json" in p for p in mac)
-    win = [str(p) for _, p in candidate_paths(tmp_path, tmp_path, "win32", {"APPDATA": str(tmp_path / "Roaming")})]
-    assert any("Roaming" in p and "claude_desktop_config.json" in p for p in win)
-    linux = [str(p) for _, p in candidate_paths(tmp_path, tmp_path, "linux", {})]
-    assert any(".config/Claude" in p for p in linux)
+    # Path.as_posix() so assertions are stable on Windows (backslash separators).
+    mac = [p.as_posix() for _, p in candidate_paths(tmp_path, tmp_path, "darwin", {})]
+    assert any(p.endswith("Library/Application Support/Claude/claude_desktop_config.json") for p in mac)
+    win = [
+        p.as_posix() for _, p in candidate_paths(tmp_path, tmp_path, "win32", {"APPDATA": str(tmp_path / "Roaming")})
+    ]
+    assert any("Roaming" in p and p.endswith("Claude/claude_desktop_config.json") for p in win)
+    linux = [p.as_posix() for _, p in candidate_paths(tmp_path, tmp_path, "linux", {})]
+    assert any(p.endswith(".config/Claude/claude_desktop_config.json") for p in linux)

@@ -47,5 +47,5 @@ def test_snapshot(name: str, monkeypatch: pytest.MonkeyPatch) -> None:
         if not UPDATE:
             pytest.fail(f"missing snapshot {path.name}; run with TOOLLINT_UPDATE_SNAPSHOTS=1")
         path.parent.mkdir(exist_ok=True)
-        path.write_text(out)
-    assert out == path.read_text()
+        path.write_text(out, encoding="utf-8")
+    assert out == path.read_text(encoding="utf-8")
