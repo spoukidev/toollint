@@ -33,7 +33,7 @@ dependencies = [
   "rich>=13.7",
   "pydantic>=2.6",
   "json5>=0.9.14",
-  "PyYAML>=6.0",
+  "PyYAML>=6.0.3",
   "rapidfuzz>=3.6",
   "tomli>=2.0; python_version < '3.11'",
 ]
