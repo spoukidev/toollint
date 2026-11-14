@@ -12,8 +12,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install -e ".[dev]"
@@ -35,8 +35,8 @@ jobs:
           - os: windows-latest
             python-version: "3.12"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -e ".[dev]"
@@ -53,8 +53,8 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python -m pip install .
@@ -67,7 +67,7 @@ jobs:
           test $? -eq 1
       - name: SARIF report
         run: toollint scan fixtures/malicious --isolated --format sarif --output toollint.sarif --exit-zero
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: toollint-fixtures-sarif
           path: toollint.sarif
