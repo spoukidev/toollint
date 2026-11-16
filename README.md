@@ -1,5 +1,7 @@
 # ToolLint
 
+[![CI](https://github.com/spoukidev/toollint/actions/workflows/ci.yml/badge.svg)](https://github.com/spoukidev/toollint/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **An offline, `ruff`-style security linter for MCP server configs and LLM agent tool definitions.**
 
 ToolLint reads `claude_desktop_config.json`, `.cursor/mcp.json`, VS Code `mcp.json`, and OpenAI,
