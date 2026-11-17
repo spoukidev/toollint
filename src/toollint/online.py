@@ -99,10 +99,17 @@ def list_tools(server: Server, *, timeout: float = 10.0, client: Any = None) -> 
             if "error" in msg:
                 raise OnlineError(f"tools/list failed: {msg['error']}")
             result = msg.get("result") or {}
-            tools.extend(t for t in result.get("tools", []) if isinstance(t, dict))
-            cursor = result.get("nextCursor")
-            if not cursor:
+            if not isinstance(result, dict):
+                raise OnlineError("tools/list returned a non-object result")
+            page_tools = result.get("tools", [])
+            if not isinstance(page_tools, list):
+                raise OnlineError("tools/list result has a non-list 'tools' field")
+            tools.extend(t for t in page_tools if isinstance(t, dict))
+            next_cursor = result.get("nextCursor")
+            # A hostile or buggy server can repeat a cursor forever; stop instead of re-fetching.
+            if not isinstance(next_cursor, str) or not next_cursor or next_cursor == cursor:
                 break
+            cursor = next_cursor
         return tools
     except (httpx.HTTPError, OSError) as exc:
         raise OnlineError(f"{type(exc).__name__}: {exc}") from exc
